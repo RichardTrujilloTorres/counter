@@ -1,0 +1,27 @@
+<!-- Select sex -->
+<div class="form-group">
+    <h3>Sono</h3>
+
+</div>
+
+<div class="btn-group" role="group" aria-label="...">
+	<input type="button" class="btn btn-default" 
+		ng-model="user.profile.sex" 
+		value="Uomo"
+		ng-click="user.profile.sex='uomo'">
+	<input type="button" class="btn btn-default" 
+		ng-model="user.profile.sex" 
+		value="Donna"
+		ng-click="user.profile.sex='donna'">
+
+
+</div>
+
+
+<div class="form-group row">
+<div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="user.likes" class="btn btn-block btn-info">
+    Next <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>

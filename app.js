@@ -33,7 +33,7 @@
 
 
 /**
-* User controller
+* User Profile Creation Controller
 */
 (function() {
 	'use strict';
@@ -42,11 +42,25 @@
 		.module('app')
 		.controller('UserController', UserController);
 
-	UserController.$inject = ['$http'];
-	function UserController($http) {
+	UserController.$inject = ['$http', '$state'];
+	function UserController($http, $state) {
 		var vm = this;
+		vm.profile = {};
+		vm.createProfile = createProfile;
 
 		console.log('UserController()');
+
+
+
+		function createProfile() {
+			console.log(vm.profile);
+
+			// craete profile
+			// move to voting section
+
+			$state.go('photo');
+
+		}
 	}
 
 })();
@@ -114,18 +128,35 @@
 				controller: 'PhotoController as photo' 
 			});
 
-		// $stateProvider
-		// 	.state('selectSex', {
-		// 		url: '/select-sex',
-		// 		templateUrl: 'templates/select-sex.html',
-		// 		controller: 'SelectSexController as selectSex' 
-		// 	});
-
 		$stateProvider
 			.state('user', {
 				url: '/user',
-				templateUrl: 'templates/user.html',
+				templateUrl: 'templates/user/index.html',
 				controller: 'UserController as user' 
+			});
+
+		$stateProvider
+			.state('user.sex', {
+				url: '/sex',
+				templateUrl: 'templates/user/sex.html'
+			});
+
+		$stateProvider
+			.state('user.likes', {
+				url: '/likes',
+				templateUrl: 'templates/user/likes.html'
+			});
+
+		$stateProvider
+			.state('user.age', {
+				url: '/age',
+				templateUrl: 'templates/user/age.html'
+			});
+
+		$stateProvider
+			.state('user.finish', {
+				url: '/finish',
+				templateUrl: 'templates/user/finish.html'
 			});
 	}
 

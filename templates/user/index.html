@@ -1,0 +1,28 @@
+<div id="form-container">
+
+    <div class="page-header text-center">
+        <h2>Profilo</h2>
+        
+        <!-- the links to our nested states using relative paths -->
+        <!-- add the active class if the state matches our ui-sref -->
+        <div id="status-buttons" class="text-center">
+            <a ui-sref-active="active" ui-sref=".sex"><span>1</span> Sono</a>
+            <a ui-sref-active="active" ui-sref=".likes"><span>2</span> Mi piaciono</a>
+            <a ui-sref-active="active" ui-sref=".age"><span>3</span> Eta</a>
+            <a ui-sref-active="active" ui-sref=".finish"><span>4</span> Completa</a>
+        </div>
+    </div>
+    
+    <!-- use ng-submit to catch the form submission and use our Angular function -->
+    <form id="signup-form" ng-submit="user.createProfile()">
+
+        <!-- our nested state views will be injected here -->
+        <div id="form-views" ui-view></div>
+    </form>
+
+
+    <pre>
+    	{{ user.profile }}
+    </pre>
+
+</div>
