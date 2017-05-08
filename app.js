@@ -166,24 +166,27 @@
 				        "sex": vm.user.sex,
 				        "search": vm.user.likes,
 				        "age": vm.user.age,
-				        "photoId": vm.photo.id,
-				        "like": "0/1",
+				        "photoId": vm.photo.photoId,
+				        "like": (answer === 'no') ? "0/1" : "1/0",
 				        "milliseconds": 100000000
 				    }
 				  }
 			};
 
 
-			// dataservice
-			// 	.save('vote', params)
-			// 		.then(function success(data, headers, status, config) {
-			// 			console.log(data);
-			// 			// move to voting section
+			console.log(params);
+
+
+			dataservice
+				.save('vote', params)
+					.then(function success(data, headers, status, config) {
+						console.log(data);
+						showNextPhoto();
 						
-			// 		}, function error(response) {
-			// 			console.log('Something went wrong');
-			// 			$state.go('main');
-			// 		});
+					}, function error(response) {
+						console.log('Something went wrong');
+						$state.go('main');
+					});
 
 			// increase vote counter
 			vm.votedPhotos++;
@@ -194,12 +197,14 @@
 				$state.go('thanks');
 			}
 
-			showNextPhoto();
+			// showNextPhoto();
 		}
 
 		function showNextPhoto() {
 			console.log(vm.photos[vm.votedPhotos]);
 			vm.photo.path = vm.photos[vm.votedPhotos].path;
+			vm.photo.photoId = vm.photos[vm.votedPhotos].photoId;
+			vm.photo.sex = vm.photos[vm.votedPhotos].sex;
 		}
 
 
