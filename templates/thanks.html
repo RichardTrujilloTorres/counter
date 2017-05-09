@@ -14,6 +14,33 @@
 	</div> 
 </div>
 	
+<div class="row">
+	<div class="card col-md-4 col-sm-6">
+	    <div class="card card-with-border card-just-text" data-background="color" data-color="black" >
+	        <div class="content">
+	            <!-- <timer autostart="false" ng-model="thanks.time"/> -->
+
+	            <p>{{ thanks.time.milliseconds }}</p>
+	            <p><b>Total: </b> {{ thanks.time.total }}</p>
+	            <p><b>Average: </b>{{ thanks.averageTime(thanks.time.total, 20) }}</p>
+	        </div>
+	    </div> <!-- end card -->
+	</div> 
+
+	<input type="button" class="btn btn-default" ng-click="thanks.timerStart()" value="Start" 
+	>
+	<input type="button" class="btn btn-default" ng-click="thanks.timerStop()" value="Stop" 
+	>
+
+	<!-- <input type="button" class="btn btn-danger" ng-click="thanks.showAverageTime === true" value="Stop" 
+	> -->
+
+
+
+
+</div>
+	
+
 
 
 

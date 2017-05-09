@@ -30,26 +30,23 @@
 </head>
 <body>
 	
-
 	<div class="content" ng-app="app">
 		<div class="container">
-
-
-
 			<div class="row text-center">
-
-						<div ui-view></div>
-					
+				<div ui-view></div>	
 			</div>
 
-
-
-			
 		</div>	
 	</div>
 
 
-	
+	<!-- Bootstrap -->
+	<script src="node_modules/jquery/dist/jquery.js"></script>
+	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+
+	<!-- <script src="node_modules/humanize-duration/humanize-duration.js"></script>
+	<script src="node_modules/moment/moment.js"></script> -->
 
 
 	<!-- Angular deps -->
@@ -57,16 +54,17 @@
 	<script src="node_modules/angular-resource/angular-resource.js"></script>
 	<script src="node_modules/angular-animate/angular-animate.js"></script>
 	<script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
-	<script src="node_modules/angular-timer/dist/angular-timer.js"></script>
+	<!-- <script src="node_modules/angular-timer/dist/angular-timer.js"></script> -->
 		
 
-	<!-- Bootstrap -->
-	<script src="node_modules/jquery/dist/jquery.js"></script>
-	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-
-
 	<!-- Angular App -->
-	<script src="app.js"></script>
-	<script src="data.service.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/data.service.js"></script>
+	<script src="js/main.controller.js"></script>
+	<script src="js/user.controller.js"></script>
+	<script src="js/photo.controller.js"></script>
+	<script src="js/thanks.controller.js"></script>
+	<script src="js/app.routes.js"></script>
+	
 </body>
 </html>
