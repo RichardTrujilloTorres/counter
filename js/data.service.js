@@ -17,9 +17,6 @@
 				return $http.get(URL + resourceUri + "/" + id);
 			}, 
 			save: function(resourceUri, params) {
-
-				console.log(URL);
-
 				return ($http({
 					method: 	'POST',
 					url: 		URL + "/" + resourceUri,

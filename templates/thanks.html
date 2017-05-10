@@ -6,7 +6,7 @@
 	        <div class="content">
 	            <h4 class="title">Finito!</h4>
 	            <p class="description">Mediamente ti e servito 
-	            <b>1.5 </b>secondi  per decidere se una foto ti piace o meno.</p>
+	            <b>{{ thanks.avgVoteTime | number: 2 }} </b>secondi  per decidere se una foto ti piace o meno.</p>
 
 	            <p>Grazie per aver partecipato! </p>
 	        </div>
@@ -14,33 +14,6 @@
 	</div> 
 </div>
 	
-<div class="row">
-	<div class="card col-md-4 col-sm-6">
-	    <div class="card card-with-border card-just-text" data-background="color" data-color="black" >
-	        <div class="content">
-	            <!-- <timer autostart="false" ng-model="thanks.time"/> -->
-
-	            <p>{{ thanks.time.milliseconds }}</p>
-	            <p><b>Total: </b> {{ thanks.time.total }}</p>
-	            <p><b>Average: </b>{{ thanks.averageTime(thanks.time.total, 20) }}</p>
-	        </div>
-	    </div> <!-- end card -->
-	</div> 
-
-	<input type="button" class="btn btn-default" ng-click="thanks.timerStart()" value="Start" 
-	>
-	<input type="button" class="btn btn-default" ng-click="thanks.timerStop()" value="Stop" 
-	>
-
-	<!-- <input type="button" class="btn btn-danger" ng-click="thanks.showAverageTime === true" value="Stop" 
-	> -->
-
-
-
-
-</div>
-	
-
 
 
 

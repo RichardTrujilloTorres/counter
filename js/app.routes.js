@@ -64,9 +64,12 @@
 
 		$stateProvider
 			.state('thanks', {
-				url: '/thanks',
+				url: '/thanks/{time:json}',
 				templateUrl: 'templates/thanks.html',
-				controller: 'ThanksController as thanks'
+				controller: 'ThanksController as thanks',
+				params: {
+					time: null
+				}
 			});
 
 	}

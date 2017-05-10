@@ -14,31 +14,35 @@
 		vm.profile = {};
 		vm.createProfile = createProfile;
 
-		console.log('UserController()');
-
-
+		
 		// Creates user profile
 		function createProfile() {
-			console.log(vm.profile);
+			// console.log(vm.profile);
+
+			// var params = {
+			// 	operation: 'create',
+			// 	payload: {
+			// 		"TableName": "user",
+			// 	    "Item": {
+			// 	        "sex": vm.profile.sex,
+			// 	        "search": vm.profile.likes,
+			// 	        "age": vm.profile.age
+			//     	}
+			// 	}
+			// };
 
 			var params = {
-				operation: 'create',
-				payload: {
-					"TableName": "user",
-				    "Item": {
-				        "sex": vm.profile.sex,
-				        "search": vm.profile.likes,
-				        "age": vm.profile.age
-			    	}
-				}
-			};
+		        "sex": vm.profile.sex,
+		        "search": vm.profile.likes,
+		        "age": vm.profile.age
+	    	};
 
 
 			
 			dataservice
 				.save('user', params)
 					.then(function success(data, headers, status, config) {
-						console.log(data);
+						// console.log(data);
 						// move to voting section
 						$state.go('photo', {
 							user: {
@@ -54,8 +58,6 @@
 					});
 
 		}
-
-		
 	}
 
 })();

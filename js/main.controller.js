@@ -12,7 +12,6 @@
 	function MainController($http) {
 		var vm = this;
 
-		// console.log('MainController()');
 	}
 
 })();

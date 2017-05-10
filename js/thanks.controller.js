@@ -8,50 +8,22 @@
 		.module('app')
 		.controller('ThanksController', ThanksController);
 
-	function ThanksController($scope, $interval) {
+	ThanksController.$inject = ['$scope', '$interval', '$stateParams', '$state'];
+	function ThanksController($scope, $interval, $stateParams, $state) {
 		var vm = this;
-		vm.timerStart = timerStart;
-		vm.timerStop = timerStop;
-		// vm.time = {};
-		vm.checkEvent  = checkEvent;
-		vm.stop;
+		vm.time = $stateParams.time;
 		vm.averageTime = averageTime;
 
-		vm.time = {
-			milliseconds: 0,
-			total: 0
-		};
 
+		vm.avgVoteTime = vm.averageTime(vm.time.total, 20); 
 
-		function checkEvent() {
-			vm.time.milliseconds++;
-			// console.log(vm.time.seconds);
-
-			if (vm.time.milliseconds === 1000) { // time limit
-				$interval.stop(vm.stop);
-			}
+		function averageTime(total, numberElements) {		
+			var avg = ( (total / 1000) / numberElements);
+			return avg;
 		}
 
-
-		function timerStart() {
-			console.log('timerStart()');
-			// $scope.$broadcast('timer-start');
-
-			vm.time.milliseconds = 0;
-			vm.stop = $interval(vm.checkEvent, 1); // update each millisecond
-
-		}
-
-		function timerStop() {
-			console.log('timerStop()');
-			// $scope.$broadcast('timer-stop');
-
-			$interval.cancel(vm.stop);
-			vm.time.total += vm.time.milliseconds;
-		}
-
-		function averageTime(total, numberElements) {
-			return (total / numberElements);
+		if (! vm.time) {
+			$state.go('main'); 
 		}
 
 	}
