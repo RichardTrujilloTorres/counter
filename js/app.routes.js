@@ -32,35 +32,72 @@
 			});
 
 		$stateProvider
-			.state('user', {
-				url: '/user',
-				templateUrl: 'templates/user/index.html',
-				controller: 'UserController as user' 
-			});
-
-		$stateProvider
-			.state('user.sex', {
+			.state('sex', {
 				url: '/sex',
-				templateUrl: 'templates/user/sex.html'
+				templateUrl: 'templates/user/sex.html',
+				controller: 'UserSexController as user' 
 			});
 
 		$stateProvider
-			.state('user.likes', {
-				url: '/likes',
-				templateUrl: 'templates/user/likes.html'
+			.state('likes', {
+				url: '/likes/{user:json}',
+				templateUrl: 'templates/user/likes.html',
+				controller: 'UserLikesController as user',
+				params: {
+					user: null
+				}
 			});
 
 		$stateProvider
-			.state('user.age', {
-				url: '/age',
-				templateUrl: 'templates/user/age.html'
+			.state('age', {
+				url: '/age/{user:json}',
+				templateUrl: 'templates/user/age.html',
+				controller: 'UserAgeController as user',
+				params: {
+					user: null
+				} 
 			});
 
 		$stateProvider
-			.state('user.finish', {
-				url: '/finish',
-				templateUrl: 'templates/user/finish.html'
+			.state('finish', {
+				url: '/finish/{user:json}',
+				templateUrl: 'templates/user/finish.html',
+				controller: 'UserFinishController as user',
+				params: {
+					user: null
+				} 
 			});
+
+		// $stateProvider
+		// 	.state('user', {
+		// 		url: '/user',
+		// 		templateUrl: 'templates/user/index.html',
+		// 		controller: 'UserController as user' 
+		// 	});
+
+		// $stateProvider
+		// 	.state('user.sex', {
+		// 		url: '/sex',
+		// 		templateUrl: 'templates/user/sex.html'
+		// 	});
+
+		// $stateProvider
+		// 	.state('user.likes', {
+		// 		url: '/likes',
+		// 		templateUrl: 'templates/user/likes.html'
+		// 	});
+
+		// $stateProvider
+		// 	.state('user.age', {
+		// 		url: '/age',
+		// 		templateUrl: 'templates/user/age.html'
+		// 	});
+
+		// $stateProvider
+		// 	.state('user.finish', {
+		// 		url: '/finish',
+		// 		templateUrl: 'templates/user/finish.html'
+		// 	});
 
 		$stateProvider
 			.state('thanks', {

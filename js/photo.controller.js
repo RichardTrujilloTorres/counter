@@ -11,7 +11,6 @@
 	PhotoController.$inject = ['$http', '$state', '$stateParams', 'dataservice', '$interval'];
 	function PhotoController($http, $state, $stateParams, dataservice, $interval) {
 		var vm = this;
-		// vm.answer = {};
 		vm.submitAnswer = submitAnswer;
 		vm.photos = {};
 		vm.photo = {};
@@ -28,6 +27,13 @@
 		vm.checkEvent  = checkEvent;
 		vm.stop;
 
+
+
+		/**
+		* Interval callback. 
+		*
+		* @return void
+		*/
 		function checkEvent() {
 			vm.time.milliseconds++;
 
@@ -37,17 +43,22 @@
 		}
 
 
+		/**
+		* Starts the timer. 
+		*
+		* @return void
+		*/
 		function timerStart() {
-			// $scope.$broadcast('timer-start');
-
 			vm.time.milliseconds = 0;
 			vm.stop = $interval(vm.checkEvent, 1); // update each millisecond
-
 		}
 
+		/**
+		* Stops the timer. 
+		*
+		* @return void
+		*/
 		function timerStop() {
-			// $scope.$broadcast('timer-stop');
-
 			$interval.cancel(vm.stop);
 			vm.time.total += vm.time.milliseconds;
 		}
@@ -58,7 +69,11 @@
 
 
 
-		// Loads all photos
+		/**
+		* Loads all photos. 
+		*
+		* @return void
+		*/
 		function loadPhotos() {
 
 			dataservice
@@ -76,28 +91,12 @@
 			
 		}
 
-		// Creates a vote
+		/**
+		* Creates a vote. 
+		*
+		* @param string answer
+		*/
 		function submitAnswer(answer) {
-
-			// stop timer
-			timerStop();
-
-			// var params = {
-			// 	"operation": "create",
-			// 	"payload": {
-			// 	    "TableName": "vote",
-			// 	    "Item": {
-			// 	        "userId": vm.user.id,
-			// 	        "sex": vm.user.sex,
-			// 	        "search": vm.user.likes,
-			// 	        "age": vm.user.age,
-			// 	        "photoId": vm.photo.photoId,
-			// 	        "like": (answer === 'no') ? "0/1" : "1/0",
-			// 	        "milliseconds": vm.time.milliseconds
-			// 	    }
-			// 	  }
-			// };
-
 
 			var params = {
 		        "userId": vm.user.id,
@@ -110,6 +109,11 @@
 		    };
 
 
+		    // stop timer
+			timerStop();
+
+
+			// create vote
 			dataservice
 				.save('vote', params)
 					.then(function success(data, headers, status, config) {
@@ -124,7 +128,11 @@
 					});
 		}
 
-		// Shows new photo
+		/**
+		* Shows new photo. 
+		*
+		* @return void
+		*/
 		function showNextPhoto() {
 			// check for end-of-test
 			if (! (vm.votedPhotos === vm.NUMBER_OF_PHOTOS)) {
