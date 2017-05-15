@@ -13,18 +13,30 @@
 		var vm = this;
 		vm.time = $stateParams.time;
 		vm.averageTime = averageTime;
-
-
 		vm.avgVoteTime = vm.averageTime(vm.time.total, 20); 
 
-		function averageTime(total, numberElements) {		
-			var avg = ( (total / 1000) / numberElements);
-			return avg;
-		}
+
 
 		if (! vm.time) {
 			$state.go('main'); 
 		}
+
+
+		
+		/**
+		* Computates the average voting time.
+		*
+		* @param float total 
+		* @param int numberOfElements  
+		*
+		* @return float
+		*/
+		function averageTime(total, numberOfElements) {		
+			var avg = ( (total / 1000) / numberOfElements);
+			return avg;
+		}
+
+		
 
 	}
 

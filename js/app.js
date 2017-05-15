@@ -6,10 +6,7 @@
 		.module('app', [
 		'ngAnimate',
 		'ui.router'
-		// 'timer'
 		]);
-		
-
 })();
 
 

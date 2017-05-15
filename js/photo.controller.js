@@ -36,10 +36,6 @@
 		*/
 		function checkEvent() {
 			vm.time.milliseconds++;
-
-			// if (vm.time.milliseconds === 1000) { // time limit
-			// 	$interval.cancel(vm.stop);
-			// }
 		}
 
 

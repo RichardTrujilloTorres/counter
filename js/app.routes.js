@@ -68,37 +68,6 @@
 				} 
 			});
 
-		// $stateProvider
-		// 	.state('user', {
-		// 		url: '/user',
-		// 		templateUrl: 'templates/user/index.html',
-		// 		controller: 'UserController as user' 
-		// 	});
-
-		// $stateProvider
-		// 	.state('user.sex', {
-		// 		url: '/sex',
-		// 		templateUrl: 'templates/user/sex.html'
-		// 	});
-
-		// $stateProvider
-		// 	.state('user.likes', {
-		// 		url: '/likes',
-		// 		templateUrl: 'templates/user/likes.html'
-		// 	});
-
-		// $stateProvider
-		// 	.state('user.age', {
-		// 		url: '/age',
-		// 		templateUrl: 'templates/user/age.html'
-		// 	});
-
-		// $stateProvider
-		// 	.state('user.finish', {
-		// 		url: '/finish',
-		// 		templateUrl: 'templates/user/finish.html'
-		// 	});
-
 		$stateProvider
 			.state('thanks', {
 				url: '/thanks/{time:json}',

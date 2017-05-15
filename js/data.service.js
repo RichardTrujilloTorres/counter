@@ -1,3 +1,6 @@
+/**
+* Generic data service.
+*/
 (function() {
 	'use strict';
 
