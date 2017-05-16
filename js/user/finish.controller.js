@@ -17,8 +17,6 @@
 
 
 
-		console.log(vm.profile);
-
 		/**
 		* User Profile Creation
 		*/

@@ -1,14 +1,30 @@
 <!-- Age -->
-<div class="form-group">
-    <h1 class="title">Eta</h1>
-    <input type="number" ng-model="user.profile.age">
-</div>
+<form name="user.profileForm" 
+	ng-submit="user.submit(user.profileForm.$valid)" 
+	novalidate>
+
+	<div class="form-group">
+	    <h1 class="title">Eta</h1>
+	    <input type="number" 
+	    	ng-model="user.profile.age"
+	    	ng-maxlength="2"
+	    	ng-minlength="2"
+	    	ng-required="true">
+	    <span ng-show="user.profileForm.$invalid &&
+	    	!user.profileForm.$pristine"
+	    	class="help-block">
+	    		Eta troppo bassa.
+	    </span>
+	</div>
 
 
-<div class="form-group row">
-<div class="col-xs-6 col-xs-offset-3">
-    <a ui-sref="finish({user: user.profile})" class="btn btn-block btn-info">
-    Prossimo <span class="glyphicon glyphicon-circle-arrow-right"></span>
-    </a>
-</div>
-</div>
+	<div class="form-group row">
+		<div class="col-xs-6 col-xs-offset-3">
+		    <input type="submit"
+				class="btn btn-block btn-info"
+		    	ng-disabled="!user.profile.age"
+		    	value="Avanti">
+		</div>
+	</div>
+
+</form>
