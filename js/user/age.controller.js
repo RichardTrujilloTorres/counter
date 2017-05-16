@@ -14,7 +14,6 @@
 
 
 		function submit(isValid) {
-
 			if (isValid) {
 				$state.go('finish', {
 					user: vm.profile

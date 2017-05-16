@@ -14,9 +14,6 @@
 
 
 		function submit(isValid) {
-			console.log(isValid);
-
-
 			if (isValid) {
 				$state.go('likes', {
 					user: vm.profile
